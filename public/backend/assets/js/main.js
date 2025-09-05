@@ -138,4 +138,18 @@ $(document).ready(function() {
   setTimeout(function() {
     $('.message-alert').hide();
   }, 300);
+
+  function slugify(text) {
+    return text.toString().toLowerCase()
+      .replace(/\s+/g,  '-')
+      .replace(/[^\w\-]+/g,  '')
+      .replace(/\-\-+/g,  '-')
+      .replace(/^-+/,  '')
+      .replace(/-+$/,  '-');
+  }
+
+  $('#title').keyup(function (){
+    var value = $(this).val();
+    $('#slug').val(slugify(value));
+  });
 });
